@@ -1,4 +1,4 @@
-// Bubble sort
+// Insertion sort
 #include <iostream>
 
 using namespace std;
@@ -20,19 +20,15 @@ int main() {
   }
 
   //Sort array
-  for(int i=0;i<arraySize;i++){
-    bool swapped = false;
-    for(int j=0;j<arraySize ;j++){
-      if(arr[j]>arr[j+1]){
-        int temp = arr[j];
-        arr[j]=arr[j+1];
-        arr[j+1]=temp;
-        swapped=true;
-      }
+  for(int i=1;i<arraySize;i++){
+    int current = arr[i];
+    int j=i-1;
+    while(j>=0 && arr[j]>current){
+        arr[j+1]=arr[j];
+        j--;
     }
-    if(swapped==false){
-      break;
-    }
+    arr[j+1]=current;
+    
   }
   //Print sorted array
   cout<<"SortedArray=[";
