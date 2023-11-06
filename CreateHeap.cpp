@@ -22,7 +22,7 @@ void heapify(int arr[],int size,int i){
 
 int main(){
 
-    int arr[]={1,2,3,4,5,6,7,8,9,10};
+    int arr[]={1,2,3,4,5,6,7,2,3};
     int size = sizeof(arr)/sizeof(arr[0]);
 
     for(int i=(size/2)-1;i>=0;i--){

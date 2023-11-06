@@ -1,3 +1,4 @@
+//Heap Sort
 #include <iostream>
 using namespace std;
 
@@ -35,9 +36,16 @@ void HeapSort(int arr[],int n){
 
 int main(){
 
-    int arr[]={60,55,54,10,53,50,52};
+    // Normal array
+    int arr[]={1,2,3,4,5,6,7,2,3};
     int size = sizeof(arr)/sizeof(arr[0]);
 
+    //Change normal array into heap
+    for(int i=(size/2)-1;i>=0;i--){
+        heapify(arr,size,i);
+    }
+    
+    //Sort array using heap sort
     HeapSort(arr,size);
 
     for(int i=0;i<size;i++){
