@@ -1,6 +1,4 @@
-// Heap deletion
-
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 void heapify(int arr[],int& size,int i){
@@ -24,26 +22,23 @@ void heapify(int arr[],int& size,int i){
 
 }
 
-void deleteformHeap(int arr[], int &size){
+void HeapSort(int arr[],int n){
 
-    if(size>0){
-        arr[0]=arr[size-1];
+    int size = n;
+    while(size>0){
+        swap(arr[size-1],arr[0]);
         size--;
+
         heapify(arr,size,0);
-    }else{
-        cout<<"nothing to delete";
     }
 }
+
 int main(){
 
-    int arr[]={60,55,54,53,50,52};
+    int arr[]={60,55,54,10,53,50,52};
     int size = sizeof(arr)/sizeof(arr[0]);
 
-    deleteformHeap(arr,size);
-    deleteformHeap(arr,size);
-    deleteformHeap(arr,size);
-    deleteformHeap(arr,size);
-    deleteformHeap(arr,size);
+    HeapSort(arr,size);
 
     for(int i=0;i<size;i++){
         cout<<arr[i]<<" ";
