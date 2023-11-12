@@ -39,7 +39,7 @@ void insertAtTail(Node* &tail,int value){
     tail = newNode;
 }
 
-void insetAtPostion(Node* &head,Node* tail, int postion,int value){
+void insetAtPosition(Node* &head,Node* &tail, int postion,int value){
 
     Node* temp = head;
 
@@ -71,28 +71,35 @@ void insetAtPostion(Node* &head,Node* tail, int postion,int value){
     
 }
 
-void deleteNode(Node* &head, int postion){
+void deleteNode(Node* &head,Node* &tail, int postion){
 
     if(postion==1){
         Node* temp = head;
         head=head->ptr;
         temp->ptr=NULL;
         delete temp;
-    }else{
-
-        Node* currNode = head;
-        Node* preNode = NULL;
-
-        int cnt = 1;
-        while(cnt<postion){
-            preNode = currNode;
-            currNode=currNode->ptr;
-            cnt++;
-        }
-        preNode->ptr = currNode->ptr;
-        currNode->ptr=NULL;
-        delete currNode;
+        return;
     }
+
+    Node* currNode = head;
+    Node* preNode = NULL;
+
+    int cnt = 1;
+    while(cnt<postion){
+        preNode = currNode;
+        currNode=currNode->ptr;
+        cnt++;
+    }
+    if(currNode->ptr==NULL){
+        preNode->ptr=NULL;
+        tail=preNode;
+        delete currNode;
+        return;
+    }
+    preNode->ptr = currNode->ptr;
+    currNode->ptr=NULL;
+    delete currNode;
+
 }
 
 void updateNodeValue(Node* head,int postion, int value){
@@ -136,17 +143,17 @@ int main(){
     printLinkedList(head); //Output=> 25 20 15 10 5 0
 
     // inset at any position 
-    insetAtPostion(head,tail,1,30);
-    insetAtPostion(head,tail,4,18);
-    insetAtPostion(head,tail,9,-5);
+    insetAtPosition(head,tail,1,30);
+    insetAtPosition(head,tail,4,18);
+    insetAtPosition(head,tail,9,-5);
 
      //print Linkedlist
     printLinkedList(head); //Output=> 30 25 20 18 15 10 5 0 -5
 
     //delete node
-    deleteNode(head,1);
-    deleteNode(head,3);
-    deleteNode(head,7);
+    deleteNode(head,tail,1);
+    deleteNode(head,tail,3);
+    deleteNode(head,tail,7);
 
     //print Linkedlist
     printLinkedList(head); //Output=> 25 20 15 10 5 0 
