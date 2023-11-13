@@ -64,6 +64,10 @@ class Queue{
             return false;
         }
     }
+
+    int Size(){
+        return rear-front;
+    }
 };
 int main(){
 
@@ -71,11 +75,14 @@ int main(){
 
     qu.enqueue(20);
     qu.enqueue(30);
+    qu.enqueue(40);
 
     qu.dequeue();
 
     qu.Front();
     qu.Rear();
+
+    cout<<"Size of queue is =>"<< qu.Size()<<endl;
 
     if(qu.isEmpty()){
         cout<<"Queue is empty"<<endl;
