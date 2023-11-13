@@ -27,7 +27,7 @@ void printLinkedList(Node* tail){
 
 };
 
-void insetAtHead(Node* &tail,int value){
+void insertAtHead(Node* &tail,int value){
 
     Node* newNode = new Node(value);
     newNode->next=tail->next;
