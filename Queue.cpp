@@ -12,6 +12,8 @@ int main(){
     cout<<"Size of queue is => "<<q.size()<<endl;
 
     q.pop();
+    q.pop();
+    q.pop();
 
     cout<<"Size of queue is => "<<q.size()<<endl;
 
