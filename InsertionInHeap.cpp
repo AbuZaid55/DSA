@@ -9,7 +9,7 @@ void insertHeap(int arr[],int &size,int value){
     size=size+1;
 
     while(index>0){
-        int parent = index/2;
+        int parent = (index-1)/2;
         if(arr[parent]<arr[index]){
             swap(arr[parent],arr[index]);
             index=parent;

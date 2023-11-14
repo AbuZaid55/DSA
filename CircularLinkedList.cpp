@@ -34,7 +34,7 @@ void insertAtHead(Node* &tail,int value){
     tail->next=newNode;
 }
 
-void insetAtTail(Node* &tail, int value){
+void insertAtTail(Node* &tail, int value){
 
     Node* newNode = new Node(value);
     newNode->next=tail->next;
@@ -45,7 +45,7 @@ void insetAtTail(Node* &tail, int value){
 void insetAtPosition(Node* &tail,int position,int value){
 
     if(position==1){
-        insetAtHead(tail,value);
+        insertAtHead(tail,value);
         return;
     }
 
@@ -57,7 +57,7 @@ void insetAtPosition(Node* &tail,int position,int value){
         cnt++;
     }
     if(temp->next==tail->next){
-        insetAtTail(tail,value);
+        insertAtTail(tail,value);
         return;
     }
     Node* newNode = new Node(value);
@@ -116,15 +116,15 @@ int main(){
 
     printLinkedList(tail); //Output=>20
 
-    insetAtHead(tail,25);
-    insetAtHead(tail,30);
-    insetAtHead(tail,35);
+    insertAtHead(tail,25);
+    insertAtHead(tail,30);
+    insertAtHead(tail,35);
 
     printLinkedList(tail); //Output=>35 30 25 20
 
-    insetAtTail(tail,15);
-    insetAtTail(tail,10);
-    insetAtTail(tail,5);
+    insertAtTail(tail,15);
+    insertAtTail(tail,10);
+    insertAtTail(tail,5);
 
     printLinkedList(tail); //Output=>35 30 25 20 15 10 5
 
